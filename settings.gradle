@@ -1,1 +1,1 @@
-include ':app', ':adateswitcher'
+include ':adateswitcher'
