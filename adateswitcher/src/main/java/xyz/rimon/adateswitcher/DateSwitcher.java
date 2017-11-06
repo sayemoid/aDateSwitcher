@@ -111,6 +111,7 @@ public class DateSwitcher extends LinearLayout implements View.OnClickListener {
 
     public void setType(Type type) {
         this.type = type;
+        this.populateTextView(this.getDateRange());
     }
 
     public Map<DateRange, Date> getDateRange() {
