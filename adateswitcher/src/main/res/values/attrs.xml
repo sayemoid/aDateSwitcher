@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DateSwitcher">
+        <attr name="buttonTextColor" format="color"/>
+        <attr name="buttonBackgroundColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="textBackgroundColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+</resources>
