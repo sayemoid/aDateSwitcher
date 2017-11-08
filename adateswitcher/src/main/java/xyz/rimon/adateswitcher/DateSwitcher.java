@@ -1,6 +1,7 @@
 package xyz.rimon.adateswitcher;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ import xyz.rimon.adateswitcher.utils.DateUtil;
 public class DateSwitcher extends LinearLayout implements View.OnClickListener {
 
     private TextView txtDate;
+    private Button btnPrevious;
+    private Button btnNext;
 
     private Calendar calendar;
 
@@ -30,6 +33,12 @@ public class DateSwitcher extends LinearLayout implements View.OnClickListener {
 
     private OnDateChangeListener listener;
 
+
+    private int btnColor;
+    private int btnBackgroundColor;
+    private int textColor;
+    private int textBackgroundColor;
+    private float textSize;
 
     public enum Type {
         MONTH, WEEK, FORNIGHT;
@@ -47,15 +56,36 @@ public class DateSwitcher extends LinearLayout implements View.OnClickListener {
 
     public DateSwitcher(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.DateSwitcher, 0, 0);
+        try {
+            btnColor = ta.getColor(R.styleable.DateSwitcher_buttonTextColor, getResources().getColor(R.color.white));
+            btnBackgroundColor = ta.getColor(R.styleable.DateSwitcher_buttonBackgroundColor, getResources().getColor(R.color.btnBackgroundColorDefault));
+            textColor = ta.getColor(R.styleable.DateSwitcher_textColor, getResources().getColor(R.color.black));
+            textBackgroundColor = ta.getColor(R.styleable.DateSwitcher_textBackgroundColor, getResources().getColor(R.color.white));
+            textSize = ta.getDimension(R.styleable.DateSwitcher_textSize, 18 * 3);
+        } finally {
+            ta.recycle();
+        }
+
         this.initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.date_switcher, this);
 
-        Button btnPrevious = findViewById(R.id.btnPrevious);
-        Button btnNext = findViewById(R.id.btnNext);
+        btnPrevious = findViewById(R.id.btnPrevious);
+        btnNext = findViewById(R.id.btnNext);
         this.txtDate = findViewById(R.id.txtDate);
+
+        // init stylus
+        this.btnPrevious.setTextColor(this.btnColor);
+        this.btnNext.setTextColor(this.btnColor);
+        this.btnPrevious.setBackgroundColor(this.btnBackgroundColor);
+        this.btnNext.setBackgroundColor(this.btnBackgroundColor);
+        this.txtDate.setTextColor(this.textColor);
+        this.txtDate.setBackgroundColor(this.textBackgroundColor);
+        this.txtDate.setTextSize(this.textSize / 3);
 
         calendar = Calendar.getInstance();
 
@@ -102,7 +132,8 @@ public class DateSwitcher extends LinearLayout implements View.OnClickListener {
         }
 
         this.populateTextView(this.getDateRange());
-        this.listener.onChange(this.getDateRange());
+        if (this.listener != null)
+            this.listener.onChange(this.getDateRange());
     }
 
     public Type getType() {

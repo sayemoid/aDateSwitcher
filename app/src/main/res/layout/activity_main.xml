@@ -4,11 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="xyz.rimon.dateswitcher.MainActivity">
 
     <xyz.rimon.adateswitcher.DateSwitcher
-        android:id="@+id/dateSwitcher"
+        android:id="@+id/mDateSwitcher"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:buttonBackgroundColor="@color/colorAccent"
+        app:buttonTextColor="@color/white"
+        app:textBackgroundColor="@android:color/darker_gray"
+        app:textColor="@color/white"
+        app:textSize="18sp" />
+
+    <xyz.rimon.adateswitcher.DateSwitcher
+        android:id="@+id/wDateSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:buttonBackgroundColor="@color/colorAccent"
+        app:buttonTextColor="@color/white"
+        app:textBackgroundColor="@android:color/darker_gray"
+        app:textColor="@color/white"
+        app:textSize="18sp" />
+
+    <xyz.rimon.adateswitcher.DateSwitcher
+        android:id="@+id/fDateSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:buttonBackgroundColor="@color/colorAccent"
+        app:buttonTextColor="@color/white"
+        app:textBackgroundColor="@android:color/darker_gray"
+        app:textColor="@color/white"
+        app:textSize="18sp" />
 
 </LinearLayout>
