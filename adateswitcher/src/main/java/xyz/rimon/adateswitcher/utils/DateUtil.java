@@ -11,7 +11,7 @@ import java.util.Locale;
 public class DateUtil {
 
     public static DateFormat getMonthNameDateFormat(){
-        return new SimpleDateFormat("MMMM", Locale.getDefault());
+        return new SimpleDateFormat("MMMM, yy", Locale.getDefault());
     }
 
     public static DateFormat getMonthDayDateFormat(){

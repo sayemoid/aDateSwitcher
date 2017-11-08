@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.dateSwitcher = findViewById(R.id.dateSwitcher);
-        this.dateSwitcher.setType(DateSwitcher.Type.WEEK);
+//        this.dateSwitcher.setType(DateSwitcher.Type.MONTH);
 
         this.dateSwitcher.setOnDateChangeListener(new DateSwitcher.OnDateChangeListener() {
             @Override
