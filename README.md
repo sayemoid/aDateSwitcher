@@ -1,6 +1,6 @@
 # aDateSwitcher
 
-<img width="300" src="https://i.imgur.com/Bo7Kpzf.png"></img>
+<img width="300" src="https://i.imgur.com/Bo7Kpzf.png"/>
 
 aDateSwitcher is a custom android view that switches to your desired date range returns a Map<DateRange,Date> of top and bottom date values.
 
